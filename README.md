@@ -14,6 +14,16 @@ Data yang berhasil diambil kemudian dibersihkan dan ditransformasikan sebelum di
 
 ---
 
+# 🌐 Sumber Data
+
+Website sumber data scraping:
+
+```bash
+https://fashion-studio.dicoding.dev
+```
+
+---
+
 # 🎯 Tujuan Project
 
 - Mengambil data produk fashion dari website
