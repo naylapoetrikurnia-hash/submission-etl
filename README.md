@@ -3,6 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas)
 ![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-4CAF50?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ---
 
@@ -10,7 +11,18 @@
 
 Project ini merupakan implementasi **ETL Pipeline (Extract, Transform, Load)** menggunakan Python untuk mengambil data produk fashion dari website **Fashion Studio Dicoding** melalui proses web scraping.
 
-Data yang berhasil diambil kemudian dibersihkan dan ditransformasikan sebelum disimpan ke dalam file CSV agar siap digunakan untuk proses analisis data lebih lanjut.
+Data hasil scraping kemudian dibersihkan, ditransformasikan, dan disimpan ke beberapa repository data yaitu:
+
+- CSV
+- Google Sheets
+- PostgreSQL
+
+Project ini juga menerapkan:
+- modular ETL architecture,
+- unit testing,
+- coverage testing,
+- error handling,
+- dan data validation.
 
 ---
 
@@ -29,9 +41,10 @@ https://fashion-studio.dicoding.dev
 - Mengambil data produk fashion dari website
 - Membersihkan data hasil scraping
 - Melakukan transformasi data
-- Menyimpan data bersih ke dalam format CSV
-- Menerapkan konsep ETL modular menggunakan Python
+- Menyimpan data hasil ETL ke beberapa repository data
+- Menerapkan konsep modular ETL menggunakan Python
 - Menerapkan unit testing dan coverage testing
+- Mengimplementasikan error handling pada proses ETL
 
 ---
 
@@ -43,6 +56,10 @@ https://fashion-studio.dicoding.dev
 - Pandas
 - Pytest
 - Coverage
+- Gspread
+- OAuth2Client
+- SQLAlchemy
+- PostgreSQL
 
 ---
 
@@ -68,6 +85,7 @@ submission-etl/
 ├── requirements.txt
 ├── submission.txt
 ├── README.md
+├── google-sheets-api.json
 └── .gitignore
 ```
 
@@ -82,14 +100,18 @@ Proses pengambilan data produk fashion dari website menggunakan:
 - `requests`
 - `BeautifulSoup`
 
-Data diambil dari:
-- 50 halaman website
+Data yang diambil meliputi:
+
 - title produk
 - price produk
 - rating produk
 - jumlah colors
 - size produk
 - gender produk
+
+Data diambil dari:
+
+- 50 halaman website Fashion Studio Dicoding
 
 ---
 
@@ -103,6 +125,7 @@ Tahap transformasi dan pembersihan data meliputi:
 - Mengubah colors menjadi integer
 - Membersihkan data size
 - Membersihkan data gender
+- Menambahkan kolom timestamp
 - Menghapus missing values
 - Menghapus duplicate data
 - Menghapus invalid product
@@ -111,11 +134,23 @@ Tahap transformasi dan pembersihan data meliputi:
 
 ## 3️⃣ Load
 
-Data hasil transformasi disimpan ke dalam file:
+Data hasil transformasi disimpan ke beberapa repository data:
+
+### 📄 CSV
+
+File:
 
 ```bash
 products.csv
 ```
+
+### 📊 Google Sheets
+
+Digunakan untuk penyimpanan data berbasis cloud spreadsheet.
+
+### 🗄️ PostgreSQL
+
+Menggunakan Neon PostgreSQL sebagai cloud database.
 
 ---
 
@@ -179,13 +214,21 @@ python main.py
 
 # 📊 Output
 
-Output project berupa file:
+Output project berupa:
 
-```bash
-products.csv
-```
+- File CSV (`products.csv`)
+- Google Sheets
+- PostgreSQL Database
 
 yang berisi data produk fashion hasil scraping dan cleaning.
+
+---
+
+# 🔗 Repository Data
+
+## Google Sheets
+
+https://docs.google.com/spreadsheets/d/1avogYpGysORP1giZRqJVt4ujRkPFPwzEOAttRjSdBG4/edit?gid=0#gid=0
 
 ---
 
@@ -196,6 +239,7 @@ yang berisi data produk fashion hasil scraping dan cleaning.
 - BeautifulSoup Documentation
 - Requests Documentation
 - Pytest Documentation
+- PostgreSQL Documentation
 
 ---
 
