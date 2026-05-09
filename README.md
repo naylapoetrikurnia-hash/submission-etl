@@ -6,7 +6,7 @@
 
 ---
 
-## 📌 Deskripsi Project
+# 📌 Deskripsi Project
 
 Project ini merupakan implementasi **ETL Pipeline (Extract, Transform, Load)** menggunakan Python untuk mengambil data produk fashion dari website **Fashion Studio Dicoding** melalui proses web scraping.
 
@@ -14,73 +14,93 @@ Data yang berhasil diambil kemudian dibersihkan dan ditransformasikan sebelum di
 
 ---
 
-## 🎯 Tujuan Project
+# 🎯 Tujuan Project
 
 - Mengambil data produk fashion dari website
 - Membersihkan data hasil scraping
 - Melakukan transformasi data
 - Menyimpan data bersih ke dalam format CSV
 - Menerapkan konsep ETL modular menggunakan Python
+- Menerapkan unit testing dan coverage testing
 
 ---
 
-## 🛠️ Teknologi yang Digunakan
+# 🛠️ Teknologi yang Digunakan
 
 - Python
 - Requests
 - BeautifulSoup4
 - Pandas
+- Pytest
+- Coverage
 
 ---
 
-## 📁 Struktur Project
+# 📁 Struktur Project
 
 ```bash
 submission-etl/
 │
-├── extract.py
-├── transform.py
-├── load.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_extract.py
+│   ├── test_transform.py
+│   └── test_load.py
+│
+├── utils/
+│   ├── __init__.py
+│   ├── extract.py
+│   ├── transform.py
+│   └── load.py
+│
 ├── main.py
 ├── products.csv
 ├── requirements.txt
-├── .gitignore
-└── README.md
+├── submission.txt
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## 🔄 ETL Process
+# 🔄 ETL Process
 
-### 1️⃣ Extract
+## 1️⃣ Extract
+
 Proses pengambilan data produk fashion dari website menggunakan:
+
 - `requests`
 - `BeautifulSoup`
 
 Data diambil dari:
 - 50 halaman website
 - title produk
-- price
-- rating
-- colors
-- size
-- gender
+- price produk
+- rating produk
+- jumlah colors
+- size produk
+- gender produk
 
 ---
 
-### 2️⃣ Transform
+## 2️⃣ Transform
+
 Tahap transformasi dan pembersihan data meliputi:
+
 - Menghapus simbol dollar (`$`)
 - Konversi harga USD ke Rupiah
 - Mengubah rating menjadi tipe float
 - Mengubah colors menjadi integer
+- Membersihkan data size
+- Membersihkan data gender
 - Menghapus missing values
 - Menghapus duplicate data
 - Menghapus invalid product
 
 ---
 
-### 3️⃣ Load
+## 3️⃣ Load
+
 Data hasil transformasi disimpan ke dalam file:
 
 ```bash
@@ -89,27 +109,57 @@ products.csv
 
 ---
 
-## 🚀 Cara Menjalankan Project
+# 🧪 Unit Testing
 
-### 1. Clone Repository
+Project ini menggunakan:
+
+- `pytest`
+- `coverage`
+
+untuk memastikan seluruh fungsi ETL berjalan dengan baik.
+
+## Menjalankan Unit Test
+
+```bash
+pytest
+```
+
+## Menjalankan Coverage Test
+
+```bash
+coverage run -m pytest
+coverage report
+```
+
+## Hasil Coverage
+
+```bash
+TOTAL 100%
+```
+
+---
+
+# 🚀 Cara Menjalankan Project
+
+## 1. Clone Repository
 
 ```bash
 git clone https://github.com/naylapoetrikurnia-hash/submission-etl.git
 ```
 
-### 2. Masuk ke Folder Project
+## 2. Masuk ke Folder Project
 
 ```bash
 cd submission-etl
 ```
 
-### 3. Install Dependencies
+## 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Jalankan ETL Pipeline
+## 4. Jalankan ETL Pipeline
 
 ```bash
 python main.py
@@ -117,7 +167,7 @@ python main.py
 
 ---
 
-## 📊 Output
+# 📊 Output
 
 Output project berupa file:
 
@@ -129,15 +179,17 @@ yang berisi data produk fashion hasil scraping dan cleaning.
 
 ---
 
-## 📚 Referensi
+# 📚 Referensi
 
 - Dicoding Academy
 - Pandas Documentation
 - BeautifulSoup Documentation
 - Requests Documentation
+- Pytest Documentation
 
 ---
 
-## 👤 Author
+# 👤 Author
 
-**Nayla Poetri Kurnia**
+**Nayla Poetri Kurnia**  
+ID Dicoding: **CDCC200D6X2356**
