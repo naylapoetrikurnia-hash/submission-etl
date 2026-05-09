@@ -1,20 +1,25 @@
-from extract import scrape_data
-from transform import transform_data
-from load import save_to_csv
+from utils.extract import scrape_data
+from utils.transform import transform_data
+from utils.load import load_data
 
-# EXTRACT
-data = scrape_data()
+def main():
 
-print("Total data hasil scraping:", len(data))
+    # EXTRACT
+    data = scrape_data()
 
-# TRANSFORM
-df = transform_data(data)
+    print("Total data hasil scraping:", len(data))
 
-print("Shape data setelah cleaning:", df.shape)
+    # TRANSFORM
+    df = transform_data(data)
 
-print(df.head())
+    print("Shape data setelah cleaning:", df.shape)
 
-print(df.info())
+    print(df.head())
 
-# LOAD
-save_to_csv(df)
+    print(df.info())
+
+    # LOAD
+    load_data(df)
+
+if __name__ == "__main__":
+    main()

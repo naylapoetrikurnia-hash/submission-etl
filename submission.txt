@@ -1,0 +1,12 @@
+# Menjalankan ETL Pipeline
+python main.py
+
+# Menjalankan Unit Test
+pytest tests
+
+# Menjalankan Coverage
+coverage run -m pytest tests
+coverage report
+
+# Repository GitHub
+https://github.com/naylapoetrikurnia-hash/submission-etl

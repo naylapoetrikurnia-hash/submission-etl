@@ -1,4 +1,4 @@
-def save_to_csv(df):
+def load_data(df):
 
     df.to_csv("products.csv", index=False)
 
