@@ -1,23 +1,39 @@
 # Fashion Studio ETL Pipeline
 
-## Deskripsi Project
-
-Project ini merupakan ETL Pipeline untuk mengambil data produk fashion dari website Fashion Studio menggunakan web scraping.
-
-Data kemudian dibersihkan (transform) dan disimpan ke dalam file CSV.
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas)
+![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-4CAF50?style=for-the-badge)
 
 ---
 
-## Teknologi yang Digunakan
+## 📌 Deskripsi Project
+
+Project ini merupakan implementasi **ETL Pipeline (Extract, Transform, Load)** menggunakan Python untuk mengambil data produk fashion dari website **Fashion Studio Dicoding** melalui proses web scraping.
+
+Data yang berhasil diambil kemudian dibersihkan dan ditransformasikan sebelum disimpan ke dalam file CSV agar siap digunakan untuk proses analisis data lebih lanjut.
+
+---
+
+## 🎯 Tujuan Project
+
+- Mengambil data produk fashion dari website
+- Membersihkan data hasil scraping
+- Melakukan transformasi data
+- Menyimpan data bersih ke dalam format CSV
+- Menerapkan konsep ETL modular menggunakan Python
+
+---
+
+## 🛠️ Teknologi yang Digunakan
 
 - Python
 - Requests
-- BeautifulSoup
+- BeautifulSoup4
 - Pandas
 
 ---
 
-## Struktur Project
+## 📁 Struktur Project
 
 ```bash
 submission-etl/
@@ -28,20 +44,72 @@ submission-etl/
 ├── main.py
 ├── products.csv
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-## Cara Menjalankan Project
+## 🔄 ETL Process
 
-1. Install dependencies
+### 1️⃣ Extract
+Proses pengambilan data produk fashion dari website menggunakan:
+- `requests`
+- `BeautifulSoup`
+
+Data diambil dari:
+- 50 halaman website
+- title produk
+- price
+- rating
+- colors
+- size
+- gender
+
+---
+
+### 2️⃣ Transform
+Tahap transformasi dan pembersihan data meliputi:
+- Menghapus simbol dollar (`$`)
+- Konversi harga USD ke Rupiah
+- Mengubah rating menjadi tipe float
+- Mengubah colors menjadi integer
+- Menghapus missing values
+- Menghapus duplicate data
+- Menghapus invalid product
+
+---
+
+### 3️⃣ Load
+Data hasil transformasi disimpan ke dalam file:
+
+```bash
+products.csv
+```
+
+---
+
+## 🚀 Cara Menjalankan Project
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/naylapoetrikurnia-hash/submission-etl.git
+```
+
+### 2. Masuk ke Folder Project
+
+```bash
+cd submission-etl
+```
+
+### 3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Jalankan ETL pipeline
+### 4. Jalankan ETL Pipeline
 
 ```bash
 python main.py
@@ -49,7 +117,7 @@ python main.py
 
 ---
 
-## Output
+## 📊 Output
 
 Output project berupa file:
 
@@ -61,18 +129,15 @@ yang berisi data produk fashion hasil scraping dan cleaning.
 
 ---
 
-## ETL Process
+## 📚 Referensi
 
-### Extract
-Mengambil data produk dari website Fashion Studio menggunakan Requests dan BeautifulSoup.
+- Dicoding Academy
+- Pandas Documentation
+- BeautifulSoup Documentation
+- Requests Documentation
 
-### Transform
-Membersihkan dan mengubah format data:
-- Menghapus simbol dollar pada price
-- Konversi USD ke Rupiah
-- Mengubah rating menjadi float
-- Membersihkan dirty data
-- Menghapus duplicate dan null values
+---
 
-### Load
-Menyimpan data bersih ke dalam file CSV.
+## 👤 Author
+
+**Nayla Poetri Kurnia**
