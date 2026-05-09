@@ -2,56 +2,64 @@ import pandas as pd
 
 def transform_data(data):
 
-    df = pd.DataFrame(data)
+    try:
 
-    # ======================
-    # TRANSFORM PRICE
-    # ======================
+        df = pd.DataFrame(data)
 
-    df["Price"] = df["Price"].str.replace("$", "", regex=False)
+        # ======================
+        # TRANSFORM PRICE
+        # ======================
 
-    df["Price"] = pd.to_numeric(df["Price"], errors="coerce")
+        df["Price"] = df["Price"].str.replace("$", "", regex=False)
 
-    df["Price"] = df["Price"] * 16000
+        df["Price"] = pd.to_numeric(df["Price"], errors="coerce")
 
-    # ======================
-    # TRANSFORM RATING
-    # ======================
+        df["Price"] = df["Price"] * 16000
 
-    df["Rating"] = df["Rating"].str.extract(r'(\d+\.\d+)')
+        # ======================
+        # TRANSFORM RATING
+        # ======================
 
-    df["Rating"] = pd.to_numeric(df["Rating"], errors="coerce")
+        df["Rating"] = df["Rating"].str.extract(r'(\d+\.\d+)')
 
-    # ======================
-    # TRANSFORM COLORS
-    # ======================
+        df["Rating"] = pd.to_numeric(df["Rating"], errors="coerce")
 
-    df["Colors"] = df["Colors"].str.extract(r'(\d+)')
+        # ======================
+        # TRANSFORM COLORS
+        # ======================
 
-    df["Colors"] = pd.to_numeric(df["Colors"], errors="coerce")
+        df["Colors"] = df["Colors"].str.extract(r'(\d+)')
 
-    # ======================
-    # CLEAN SIZE
-    # ======================
+        df["Colors"] = pd.to_numeric(df["Colors"], errors="coerce")
 
-    df["Size"] = df["Size"].str.replace("Size: ", "", regex=False)
+        # ======================
+        # CLEAN SIZE
+        # ======================
 
-    # ======================
-    # CLEAN GENDER
-    # ======================
+        df["Size"] = df["Size"].str.replace("Size: ", "", regex=False)
 
-    df["Gender"] = df["Gender"].str.replace("Gender: ", "", regex=False)
+        # ======================
+        # CLEAN GENDER
+        # ======================
 
-    # ======================
-    # CLEANING DATA
-    # ======================
+        df["Gender"] = df["Gender"].str.replace("Gender: ", "", regex=False)
 
-    df = df[df["Title"] != "Unknown Product"]
+        # ======================
+        # CLEANING DATA
+        # ======================
 
-    df = df.dropna()
+        df = df[df["Title"] != "Unknown Product"]
 
-    df = df.drop_duplicates()
+        df = df.dropna()
 
-    df = df.reset_index(drop=True)
+        df = df.drop_duplicates()
 
-    return df
+        df = df.reset_index(drop=True)
+
+        return df
+
+    except Exception as e:
+
+        print(f"Error saat transform data: {e}")
+
+        return pd.DataFrame()
