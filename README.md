@@ -179,7 +179,7 @@ coverage report
 ## Hasil Coverage
 
 ```bash
-TOTAL 100%
+Project telah berhasil menjalankan unit testing dan coverage testing dengan hasil coverage sebesar 95%.
 ```
 
 ---

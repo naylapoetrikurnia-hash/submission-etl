@@ -52,9 +52,10 @@ def load_data(df):
         # SAVE POSTGRESQL
         # ======================
 
-        engine = create_engine(
-             "YOUR_POSTGRESQL_CONNECTION"
-        )
+        # GANTI DENGAN CONNECTION DATABASE POSTGRESQL
+        DATABASE_URL = "YOUR_POSTGRESQL_CONNECTION"
+
+        engine = create_engine(DATABASE_URL)
 
         df.to_sql(
             "fashion_products",
