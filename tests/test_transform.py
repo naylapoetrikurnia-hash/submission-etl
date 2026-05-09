@@ -4,16 +4,23 @@ def test_transform_data():
 
     sample_data = [
         {
-            "Title": "T-shirt",
+            "Title": "Test Product",
             "Price": "$100",
-            "Rating": "Rating: ⭐ 4.5 / 5",
+            "Rating": "Rating: 4.5 / 5",
             "Colors": "3 Colors",
             "Size": "Size: M",
-            "Gender": "Gender: Men"
+            "Gender": "Gender: Men",
+            "timestamp": "2025-01-01"
         }
     ]
 
     df = transform_data(sample_data)
 
-    assert df is not None
     assert not df.empty
+
+
+def test_transform_data_error():
+
+    df = transform_data(None)
+
+    assert df.empty

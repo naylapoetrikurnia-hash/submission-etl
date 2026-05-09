@@ -10,3 +10,10 @@ def test_load_data():
     load_data(df)
 
     assert True
+
+
+def test_load_data_error():
+
+    load_data(None)
+
+    assert True
