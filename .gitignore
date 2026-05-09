@@ -3,3 +3,4 @@ __pycache__/
 .vscode/
 .coverage
 .DS_Store
+google-sheets-api.json
