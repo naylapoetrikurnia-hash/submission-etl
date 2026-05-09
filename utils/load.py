@@ -1,6 +1,5 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from sqlalchemy import create_engine
 
 
 def load_data(df):
@@ -47,24 +46,6 @@ def load_data(df):
         )
 
         print("Data berhasil disimpan ke Google Sheets")
-
-        # ======================
-        # SAVE POSTGRESQL
-        # ======================
-
-        # GANTI DENGAN CONNECTION DATABASE POSTGRESQL
-        DATABASE_URL = "YOUR_POSTGRESQL_CONNECTION"
-
-        engine = create_engine(DATABASE_URL)
-
-        df.to_sql(
-            "fashion_products",
-            engine,
-            if_exists="replace",
-            index=False
-        )
-
-        print("Data berhasil disimpan ke PostgreSQL")
 
     except Exception as e:
 

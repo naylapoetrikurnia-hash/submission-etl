@@ -13,6 +13,3 @@ https://github.com/naylapoetrikurnia-hash/submission-etl
 
 # URL Google Sheets
 https://docs.google.com/spreadsheets/d/1avogYpGysORP1giZRqJVt4ujRkPFPwzEOAttRjSdBG4/edit?gid=0#gid=0
-
-# PostgreSQL
-Menggunakan Neon PostgreSQL sebagai cloud database untuk penyimpanan data hasil ETL.

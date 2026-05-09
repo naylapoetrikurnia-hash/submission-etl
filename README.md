@@ -3,7 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas)
 ![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-4CAF50?style=for-the-badge)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 
 ---
 
@@ -15,14 +14,14 @@ Data hasil scraping kemudian dibersihkan, ditransformasikan, dan disimpan ke beb
 
 - CSV
 - Google Sheets
-- PostgreSQL
 
 Project ini juga menerapkan:
-- modular ETL architecture,
-- unit testing,
-- coverage testing,
-- error handling,
-- dan data validation.
+
+- modular ETL architecture
+- unit testing
+- coverage testing
+- error handling
+- data validation
 
 ---
 
@@ -58,8 +57,6 @@ https://fashion-studio.dicoding.dev
 - Coverage
 - Gspread
 - OAuth2Client
-- SQLAlchemy
-- PostgreSQL
 
 ---
 
@@ -148,10 +145,6 @@ products.csv
 
 Digunakan untuk penyimpanan data berbasis cloud spreadsheet.
 
-### 🗄️ PostgreSQL
-
-Menggunakan Neon PostgreSQL sebagai cloud database.
-
 ---
 
 # 🧪 Unit Testing
@@ -172,15 +165,13 @@ pytest
 ## Menjalankan Coverage Test
 
 ```bash
-coverage run -m pytest
+coverage run -m pytest tests
 coverage report
 ```
 
 ## Hasil Coverage
 
-```bash
 Project telah berhasil menjalankan unit testing dan coverage testing dengan hasil coverage sebesar 95%.
-```
 
 ---
 
@@ -218,7 +209,6 @@ Output project berupa:
 
 - File CSV (`products.csv`)
 - Google Sheets
-- PostgreSQL Database
 
 yang berisi data produk fashion hasil scraping dan cleaning.
 
@@ -239,7 +229,6 @@ https://docs.google.com/spreadsheets/d/1avogYpGysORP1giZRqJVt4ujRkPFPwzEOAttRjSd
 - BeautifulSoup Documentation
 - Requests Documentation
 - Pytest Documentation
-- PostgreSQL Documentation
 
 ---
 
