@@ -1,35 +1,34 @@
 # Fashion Studio ETL Pipeline
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![BeautifulSoup](https://img.shields.io/badge/BeautifulSoup-4CAF50?style=for-the-badge)
 
 ---
 
 # 📌 Deskripsi Project
 
-Project ini merupakan implementasi **ETL Pipeline (Extract, Transform, Load)** menggunakan Python untuk mengambil data produk fashion dari website **Fashion Studio Dicoding** melalui proses web scraping.
+Project ini merupakan implementasi **ETL Pipeline (Extract, Transform, Load)** menggunakan Python untuk mengambil data produk fashion dari website **Fashion Studio Dicoding** melalui proses *web scraping*.
 
-Data hasil scraping kemudian dibersihkan, ditransformasikan, dan disimpan ke beberapa repository data yaitu:
+Data hasil *scraping* kemudian dibersihkan, ditransformasikan, divalidasi, dan disimpan dalam format:
 
 - CSV
-- Google Sheets
 
 Project ini juga menerapkan:
 
-- modular ETL architecture
-- unit testing
-- coverage testing
-- error handling
-- data validation
+- Modular ETL architecture
+- Unit testing
+- Coverage testing
+- Error handling
+- Data validation
 
 ---
 
 # 🌐 Sumber Data
 
-Website sumber data scraping:
+Website sumber data *scraping*:
 
-```bash
+```text
 https://fashion-studio.dicoding.dev
 ```
 
@@ -38,9 +37,10 @@ https://fashion-studio.dicoding.dev
 # 🎯 Tujuan Project
 
 - Mengambil data produk fashion dari website
-- Membersihkan data hasil scraping
+- Membersihkan data hasil *scraping*
 - Melakukan transformasi data
-- Menyimpan data hasil ETL ke beberapa repository data
+- Melakukan validasi data
+- Menyimpan data hasil ETL dalam format CSV
 - Menerapkan konsep modular ETL menggunakan Python
 - Menerapkan unit testing dan coverage testing
 - Mengimplementasikan error handling pada proses ETL
@@ -55,14 +55,12 @@ https://fashion-studio.dicoding.dev
 - Pandas
 - Pytest
 - Coverage
-- Gspread
-- OAuth2Client
 
 ---
 
 # 📁 Struktur Project
 
-```bash
+```text
 submission-etl/
 │
 ├── tests/
@@ -82,7 +80,6 @@ submission-etl/
 ├── requirements.txt
 ├── submission.txt
 ├── README.md
-├── google-sheets-api.json
 └── .gitignore
 ```
 
@@ -92,23 +89,21 @@ submission-etl/
 
 ## 1️⃣ Extract
 
-Proses pengambilan data produk fashion dari website menggunakan:
+Proses pengambilan data produk fashion dari website dilakukan menggunakan:
 
 - `requests`
 - `BeautifulSoup`
 
 Data yang diambil meliputi:
 
-- title produk
-- price produk
-- rating produk
-- jumlah colors
-- size produk
-- gender produk
+- Judul produk
+- Harga produk
+- Rating produk
+- Jumlah pilihan warna
+- Ukuran produk
+- Gender produk
 
-Data diambil dari:
-
-- 50 halaman website Fashion Studio Dicoding
+Data produk diambil dari 50 halaman website Fashion Studio Dicoding.
 
 ---
 
@@ -116,34 +111,38 @@ Data diambil dari:
 
 Tahap transformasi dan pembersihan data meliputi:
 
-- Menghapus simbol dollar (`$`)
-- Konversi harga USD ke Rupiah
-- Mengubah rating menjadi tipe float
-- Mengubah colors menjadi integer
-- Membersihkan data size
+- Menghapus simbol dolar (`$`)
+- Mengonversi harga dari USD ke rupiah
+- Mengubah rating menjadi tipe data `float`
+- Mengubah jumlah warna menjadi tipe data `integer`
+- Membersihkan data ukuran
 - Membersihkan data gender
-- Menambahkan kolom timestamp
-- Menghapus missing values
-- Menghapus duplicate data
-- Menghapus invalid product
+- Menambahkan kolom `timestamp`
+- Menghapus *missing values*
+- Menghapus data duplikat
+- Menghapus produk dengan data tidak valid
 
 ---
 
 ## 3️⃣ Load
 
-Data hasil transformasi disimpan ke beberapa repository data:
+Data hasil transformasi disimpan dalam format CSV.
 
 ### 📄 CSV
 
-File:
+File hasil proses ETL:
 
-```bash
+```text
 products.csv
 ```
 
-### 📊 Google Sheets
+Proses penyimpanan dilakukan menggunakan fungsi `to_csv()` dari Pandas:
 
-Digunakan untuk penyimpanan data berbasis cloud spreadsheet.
+```python
+df.to_csv("products.csv", index=False)
+```
+
+Parameter `index=False` digunakan agar indeks DataFrame tidak ikut disimpan sebagai kolom tambahan.
 
 ---
 
@@ -154,7 +153,7 @@ Project ini menggunakan:
 - `pytest`
 - `coverage`
 
-untuk memastikan seluruh fungsi ETL berjalan dengan baik.
+Pengujian dilakukan untuk memastikan seluruh fungsi ETL berjalan dengan baik.
 
 ## Menjalankan Unit Test
 
@@ -171,7 +170,7 @@ coverage report
 
 ## Hasil Coverage
 
-Project telah berhasil menjalankan unit testing dan coverage testing dengan hasil coverage sebesar 95%.
+Project telah berhasil menjalankan unit testing dan coverage testing dengan hasil coverage sebesar **95%**.
 
 ---
 
@@ -201,34 +200,37 @@ pip install -r requirements.txt
 python main.py
 ```
 
+Setelah proses ETL selesai, file `products.csv` akan dibuat pada folder utama project.
+
 ---
 
 # 📊 Output
 
-Output project berupa:
+Output project berupa file:
 
-- File CSV (`products.csv`)
-- Google Sheets
+```text
+products.csv
+```
 
-yang berisi data produk fashion hasil scraping dan cleaning.
+File tersebut berisi data produk fashion yang telah melalui proses:
 
----
-
-# 🔗 Repository Data
-
-## Google Sheets
-
-https://docs.google.com/spreadsheets/d/1avogYpGysORP1giZRqJVt4ujRkPFPwzEOAttRjSdBG4/edit?gid=0#gid=0
+1. Pengambilan data dari website
+2. Pembersihan data
+3. Transformasi data
+4. Validasi data
+5. Penyimpanan dalam format CSV
 
 ---
 
 # 📚 Referensi
 
 - Dicoding Academy
+- Python Documentation
 - Pandas Documentation
 - BeautifulSoup Documentation
 - Requests Documentation
 - Pytest Documentation
+- Coverage.py Documentation
 
 ---
 

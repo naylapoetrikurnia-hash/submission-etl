@@ -1,52 +1,18 @@
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+import pandas as pd
 
 
-def load_data(df):
+def load_data(df: pd.DataFrame, output_file: str = "products.csv") -> None:
+    """
+    Menyimpan DataFrame ke dalam file CSV.
 
+    Parameters:
+        df: DataFrame yang akan disimpan.
+        output_file: Nama atau lokasi file CSV.
+    """
     try:
+        df.to_csv(output_file, index=False)
+        print(f"Data berhasil disimpan ke {output_file}")
 
-        # ======================
-        # SAVE CSV
-        # ======================
-
-        df.to_csv("products.csv", index=False)
-
-        print("Data berhasil disimpan ke CSV")
-
-        # ======================
-        # SAVE GOOGLE SHEETS
-        # ======================
-
-        scope = [
-            "https://spreadsheets.google.com/feeds",
-            "https://www.googleapis.com/auth/drive"
-        ]
-
-        creds = ServiceAccountCredentials.from_json_keyfile_name(
-            "google-sheets-api.json",
-            scope
-        )
-
-        client = gspread.authorize(creds)
-
-        spreadsheet = client.open_by_key(
-            "1avogYpGysORP1giZRqJVt4ujRkPFPwzEOAttRjSdBG4"
-        )
-
-        worksheet = spreadsheet.sheet1
-
-        worksheet.clear()
-
-        # CONVERT TIMESTAMP TO STRING
-        df["timestamp"] = df["timestamp"].astype(str)
-
-        worksheet.update(
-            [df.columns.values.tolist()] + df.values.tolist()
-        )
-
-        print("Data berhasil disimpan ke Google Sheets")
-
-    except Exception as e:
-
-        print(f"Error saat menyimpan data: {e}")
+    except Exception as error:
+        print(f"Error saat menyimpan data ke CSV: {error}")
+        raise
